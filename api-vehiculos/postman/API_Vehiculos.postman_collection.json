@@ -1,0 +1,225 @@
+{
+  "info": {
+    "name": "API Vehículos - Laravel",
+    "description": "Seis pruebas de la Serie 4. Ejecútelas en orden con el servidor encendido (php artisan serve). Si el POST de la prueba 1 devuelve un id distinto de 1, cambie el número al final de la URL en las pruebas 3, 4 y 6.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. POST - Crear vehículo",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos"
+          ]
+        },
+        "description": "Esperado: 201 Created",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"marca\": \"Toyota\",\n    \"modelo\": \"Corolla\",\n    \"anio\": 2022,\n    \"color\": \"Blanco\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "2. GET - Listar vehículos",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos"
+          ]
+        },
+        "description": "Esperado: 200 OK"
+      },
+      "response": []
+    },
+    {
+      "name": "3. GET - Consultar vehículo por id",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos",
+            "1"
+          ]
+        },
+        "description": "Esperado: 200 OK"
+      },
+      "response": []
+    },
+    {
+      "name": "4. PUT - Actualizar vehículo",
+      "request": {
+        "method": "PUT",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos",
+            "1"
+          ]
+        },
+        "description": "Esperado: 200 OK",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"marca\": \"Toyota\",\n    \"modelo\": \"Corolla Cross\",\n    \"anio\": 2024,\n    \"color\": \"Gris\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "5. POST - Datos inválidos (error de validación)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos"
+          ]
+        },
+        "description": "Esperado: 422 Unprocessable Content",
+        "body": {
+          "mode": "raw",
+          "raw": "{\n    \"marca\": \"\",\n    \"modelo\": \"Hilux\",\n    \"anio\": 1500\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "6. DELETE - Eliminar vehículo",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/vehiculos/1",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "vehiculos",
+            "1"
+          ]
+        },
+        "description": "Esperado: 200 OK"
+      },
+      "response": []
+    }
+  ]
+}
